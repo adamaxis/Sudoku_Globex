@@ -153,9 +153,6 @@
   <ItemGroup>
     <ClCompile Include="Sudoku_Globex.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Sudoku_Globex.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
