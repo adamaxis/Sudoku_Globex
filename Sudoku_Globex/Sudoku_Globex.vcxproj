@@ -151,7 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameSetup.cpp" />
     <ClCompile Include="Sudoku_Globex.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameSetup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
