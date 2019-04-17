@@ -15,7 +15,7 @@ using namespace std;
 
 int main()
 {
-    std::cout << "\n\t\t   GLO-DOKU\n"; 
+	std::cout << "\n\t\t   GLO-DOKU\n";
 	createBoard();
 	while (play) {
 		printBoard();

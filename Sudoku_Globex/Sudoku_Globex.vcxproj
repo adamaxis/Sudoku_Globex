@@ -152,10 +152,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameSetup.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Sudoku_Globex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameSetup.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Sudoku_Globex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
