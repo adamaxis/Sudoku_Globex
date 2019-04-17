@@ -1,31 +1,9 @@
-// Sudoku_Globex.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include <time.h>
-#include "GameSetup.h"
-
-void mainMenu();
-void createBoard();
-void printBoard();
-bool play = true;
-int board[9][9];
-int response, columnChoice, rowChoice, valueChoice;
+#include "Menu.h"
 using namespace std;
 
-int main()
-{
-	std::cout << "\n\t\t   GLO-DOKU\n";
-	createBoard();
-	while (play) {
-		printBoard();
-		mainMenu();
-	}
-
-	return 0;
-}
-
-void mainMenu()
+void Menu::mainMenu()
 {
 	bool askQuestions = true, columnQuest = true, rowQuest = true, valueQuest = true;
 
@@ -43,7 +21,7 @@ void mainMenu()
 		}
 
 		while (rowQuest != false) {
-			cout << "\n\t\t   Row: ";
+			cout << "\n\t\t  Row: ";
 			cin >> response;
 			if (response > 9 || response < 1) {
 				cout << "   Please enter a number between 1 and 9.";
@@ -81,30 +59,7 @@ void mainMenu()
 			}
 		}
 
-		board[rowChoice - 1][columnChoice - 1] = response;
+		board[rowChoice][columnChoice] = response;
 		askQuestions = false;
 	}
 }
-
-void createBoard()
-{
-	for (int i = 0; i <= 8; i++) {
-		for (int j = 0; j <= 8; j++) {
-
-		}
-	}
-}
-
-void printBoard()
-{
-	for (int i = 0; i <= 8; i++) {
-		cout << endl << "     ";
-		for (int j = 0; j <= 8; j++) {
-			cout << "| " << board[i][j] << " ";
-		}
-		cout << "|" << endl;
-	}
-
-	cout << endl;
-}
-
