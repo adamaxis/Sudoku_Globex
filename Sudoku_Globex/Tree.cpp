@@ -56,6 +56,7 @@ void Tree::insert(int key, Node *t) {
 	}
 }
 /*
+Was going to implement this(it's my java implementation of depth-searching) when I realized we didn't need a binary tree. lol
 String Tree::DFS() {
 	String DFS;
 	DFS = "Depth-based traversal: " + depth_traversal(&root, DFS) + "(end)";
