@@ -5,11 +5,14 @@
 #include <time.h>
 #include "GameSetup.h"
 
+#define EMPTY 0
+#define GRID_SIZE 9
 void mainMenu();
 void createBoard();
 void printBoard();
+bool solve();
 bool play = true;
-int board[9][9];
+int board[GRID_SIZE][GRID_SIZE];
 int response, columnChoice, rowChoice, valueChoice;
 using namespace std;
 
@@ -83,11 +86,12 @@ void mainMenu()
 
 		board[rowChoice - 1][columnChoice - 1] = response;
 		askQuestions = false;
+
+		//if (solve()) cout << "Board solved!" << endl;
 	}
 }
 
-void createBoard()
-{
+void createBoard() {
 	for (int i = 0; i <= 8; i++) {
 		for (int j = 0; j <= 8; j++) {
 
@@ -95,8 +99,7 @@ void createBoard()
 	}
 }
 
-void printBoard()
-{
+void printBoard() {
 	for (int i = 0; i <= 8; i++) {
 		cout << endl << "     ";
 		for (int j = 0; j <= 8; j++) {
@@ -104,7 +107,53 @@ void printBoard()
 		}
 		cout << "|" << endl;
 	}
-
 	cout << endl;
 }
 
+// checks to ensure a move is legal
+bool legalMove(int row, int col, int num) {
+	if (board[row][col] != EMPTY) return false;
+
+	for (int row = 0; row < GRID_SIZE; row++)
+		if (board[row][col] == num)
+			return false;
+
+	for (int col = 0; col < GRID_SIZE; col++)
+		if (board[row][col] == num)
+			return false;
+
+	int bRow = row - (row % 3);
+	int bCol = col - (col % 3);
+	for (int row = 0; row < 3; row++) {
+		for (int col = 0; col < 3; col++) {
+			if (board[row + bRow][col + bCol] == num) return false;
+		}
+	}
+	return true;
+}
+
+// find free spot in board
+bool freeSpot(int &row, int &col) {
+	for (row = 0; row < GRID_SIZE; row++) {
+		for (col = 0; col < GRID_SIZE; col++) {
+			if (board[row][col] == EMPTY) return true;
+		}
+	}
+	return false;
+}
+
+// solve puzzle with brute-force
+bool solve() {
+	int row, col;
+
+	if (!freeSpot(row, col)) return true;
+	
+	for (int num = 1; num < 10; num++) {
+		if (legalMove(row, col, num)) {
+			board[row][col] = num;
+			if (solve()) return true;
+			board[row][col] = EMPTY;
+		}
+	}
+	return false;
+}

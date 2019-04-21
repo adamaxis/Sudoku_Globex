@@ -8,6 +8,8 @@ public:
 		columnChoice,
 		rowChoice,
 		valueChoice;
+	bool fixed[9][9],
+		 ok[9][9];
 	void mainMenu();
 };
 #endif
