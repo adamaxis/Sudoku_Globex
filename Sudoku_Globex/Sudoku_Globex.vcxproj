@@ -151,15 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameSetup.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Sudoku_Globex.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameSetup.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Sudoku_Globex.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
