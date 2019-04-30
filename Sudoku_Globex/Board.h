@@ -23,6 +23,7 @@ class Board {
 	bool isEmpty(int, int);
 	bool legalMove(int, int, int);
 	bool freeSpot(int &, int &);
+	bool checkComplete( );
 	bool solve( );
 	Board( ) {
 		difficulty = 0;

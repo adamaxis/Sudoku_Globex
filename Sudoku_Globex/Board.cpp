@@ -22,7 +22,11 @@ void Board::createBoard() {
 		}
 	}
 
+	for (int i = 0; i <= 8; i++) {
+		for (int j = 0; j <= 8; j++) {
 
+		}
+	}
 	/*if (solve()) cout << "Board solved!" << endl;
 	cout << "Difficulty:" << difficulty << endl;*/
 }
@@ -120,6 +124,15 @@ bool Board::freeSpot(int &row, int &col) {
 		}
 	}
 	return false;
+}
+
+bool Board::checkComplete( ) {
+	for (int i = 0; i < GRID_SIZE; i++) {
+		for (int k = 0; k < GRID_SIZE; k++) {
+			if (board[i][k] == EMPTY) return false;
+		}
+	}
+	return true;
 }
 
 // solve puzzle with brute-force
