@@ -3,14 +3,26 @@
 using namespace std;
 
 void Board::createBoard() {
-	clock.start( );
-	for (int i = 0; i <= 8; i++) {
-		for (int j = 0; j <= 8; j++) {
-
+	while (1) {
+		srand(time(0));
+		int temp;
+		int numberOfBoxes = (rand() % 5 + 2); // a random number of numbers is pre-filled
+		for (int j = 0; j <= numberOfBoxes; j++) { // For each row in the board
+			int row = (rand() % 10);
+			int col = (rand() % 10);
+			int rnum = (rand() % 9) + 1;
+			if (legalMove(row, col, rnum)) {
+				setBox(row, col, rnum);
+				setFixed(row, col);
+			} else {
+				j--;
+			}
 		}
+		Board check;
+		memcpy(&check, this, sizeof(this));
+		if (check.solve( )) return;
+		else clearBoard( );
 	}
-	/*if (solve()) cout << "Board solved!" << endl;
-	cout << "Difficulty:" << difficulty << endl;*/
 }
 
 // set a spot to fixed
@@ -33,6 +45,16 @@ bool Board::isEmpty(int row, int col) {
 	return (board[row][col] == EMPTY);
 }
 
+// set a box
+void Board::setBox(int row, int col, int val) {
+	board[row][col] = val;
+}
+
+// get a box
+int Board::getBox(int row, int col) {
+	return board[row][col];
+}
+
 // set console text color
 void Board::setColor(int newColor) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), newColor);
@@ -44,8 +66,9 @@ void Board::revertColor( ) {
 }
 
 void Board::printBoard() {
-	cout << "Timer: ";
+	cout << "Elapsed time: ";
 	clock.printTime( );
+	cout << " seconds." << endl;
 	for (int i = 0; i <= 8; i++) {
 		cout << endl << "     ";
 		for (int j = 0; j <= 8; j++) {
@@ -68,6 +91,7 @@ void Board::printBoard() {
 
 // clear board and fixed spaces
 void Board::clearBoard( ) {
+	clock.stop( );
 	for (int i = 0; i < GRID_SIZE; i++) {
 		for (int j = 0; j < GRID_SIZE; j++) {
 			board[i][j] = 0;

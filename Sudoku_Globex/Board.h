@@ -17,6 +17,8 @@ class Board {
 	void clearBoard( );
 	void setColor(int);
 	void revertColor( );
+	void setBox(int, int, int);
+	int getBox(int, int);
 	void setFixed(int, int);
 	bool isFixed(int, int);
 	void setEmpty(int, int);

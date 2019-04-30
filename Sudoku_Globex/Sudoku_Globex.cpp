@@ -15,13 +15,18 @@ int main()
 	gameMenu.game.createBoard();
 	while (play) {
 		gameMenu.game.printBoard();
+		gameMenu.mainMenu();
+		if (getchar( ) == 'S') gameMenu.game.solve( );
 		if (gameMenu.game.checkComplete()) {
+			gameMenu.game.printBoard();
 			cout << endl << endl << "You have solved the sudoku!" << endl;
+			cout << "Total solve time: ";
+			gameMenu.game.clock.printTime( );
+			cout << " seconds." << endl;
 			gameMenu.game.clearBoard( );
 			gameMenu.game.createBoard( );
 			continue;
 		}
-		gameMenu.mainMenu();
 	}
 
 	return 0;

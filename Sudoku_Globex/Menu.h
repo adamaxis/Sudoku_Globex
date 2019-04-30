@@ -12,7 +12,6 @@ public:
 	rowChoice,
 	valueChoice,
 	difficulty;
-	Timer clock;
 	Board game;
 	bool fixed[GRID_SIZE][GRID_SIZE],
 	ok[GRID_SIZE][GRID_SIZE];
