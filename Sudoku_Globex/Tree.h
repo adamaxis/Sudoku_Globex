@@ -2,12 +2,14 @@
 #define _TREE_H
 #include <string>
 
+// Node class for tree
 struct Node {
 	int val;
 	Node *left;
 	Node *right;
 };
 
+// Binary Tree class
 class Tree {
 	Node *root;
 public:

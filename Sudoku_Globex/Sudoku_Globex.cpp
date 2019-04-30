@@ -15,6 +15,12 @@ int main()
 	gameMenu.game.createBoard();
 	while (play) {
 		gameMenu.game.printBoard();
+		if (gameMenu.game.checkComplete()) {
+			cout << endl << endl << "You have solved the sudoku!" << endl;
+			gameMenu.game.clearBoard( );
+			gameMenu.game.createBoard( );
+			continue;
+		}
 		gameMenu.mainMenu();
 	}
 

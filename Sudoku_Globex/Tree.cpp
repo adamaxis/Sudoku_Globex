@@ -1,6 +1,7 @@
 #include "Tree.h"
 #include <string>
 
+// Simple binary tree
 Tree::Tree() {
 	root = nullptr;
 }
@@ -55,25 +56,3 @@ void Tree::insert(int key, Node *t) {
 		} else insert(key, t->right);
 	}
 }
-/*
-Was going to implement this(it's my java implementation of depth-searching) when I realized we didn't need a binary tree. lol
-String Tree::DFS() {
-	String DFS;
-	DFS = "Depth-based traversal: " + depth_traversal(&root, DFS) + "(end)";
-	return DFS;
-}
-
-// depth-based traversal
-String Tree::depth_traversal(Node *node, String curNode) {
-	// recursive null check
-	if (node == nullptr) return nullptr;
-	// grab current node's position for our traversal string
-	curNode += node.pos + "->";
-	// start by recursing left
-	if (node.left != nullptr) curNode = depth_traversal(node.left, curNode);
-	// then recurse right
-	if (node.right != nullptr) curNode = depth_traversal(node.right, curNode);
-	// end of tree reached
-	return curNode;
-}
-*/
