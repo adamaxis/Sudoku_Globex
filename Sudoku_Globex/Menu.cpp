@@ -30,6 +30,10 @@ void Menu::mainMenu() {
 			}
 		}
 
+		// update choices to reflect column
+		rowChoice--;
+		columnChoice--;
+
 		if (game.board[rowChoice][columnChoice] != 0) {
 			cout << "  There is already a value of " << game.board[rowChoice][columnChoice] << " entered. Overwrite? y/n: ";
 			cin >> response;
@@ -60,7 +64,7 @@ void Menu::mainMenu() {
 		if ((!game.legalMove(rowChoice, columnChoice, valueChoice) && valueChoice != EMPTY) || (game.fixed[rowChoice][columnChoice])) {
 			cout << "That is not a legal move." << endl;
 		} else {
-			game.board[rowChoice - 1][columnChoice - 1] = response;
+			game.board[rowChoice][columnChoice] = response;
 		}
 		askQuestions = false;
 	}

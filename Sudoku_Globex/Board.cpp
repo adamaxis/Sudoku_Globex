@@ -49,8 +49,9 @@ void Board::printBoard() {
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
 		}
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240); // white
-		cout << "|" << endl;
+		cout << "|";
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
+		cout << endl;
 	}
 	cout << endl;
 }
