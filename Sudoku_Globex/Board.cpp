@@ -3,13 +3,14 @@
 using namespace std;
 
 void Board::createBoard() {
+	clearBoard( );
 	while (1) {
 		srand(time(0));
 		int temp;
-		int numberOfBoxes = (rand() % 5 + 2); // a random number of numbers is pre-filled
+		int numberOfBoxes = (rand() % 10 + 3); // a random number of numbers is pre-filled
 		for (int j = 0; j <= numberOfBoxes; j++) { // For each row in the board
-			int row = (rand() % 10);
-			int col = (rand() % 10);
+			int row = (rand() % GRID_SIZE);
+			int col = (rand() % GRID_SIZE);
 			int rnum = (rand() % 9) + 1;
 			if (legalMove(row, col, rnum)) {
 				setBox(row, col, rnum);
