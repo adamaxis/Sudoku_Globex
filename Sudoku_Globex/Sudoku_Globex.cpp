@@ -12,9 +12,9 @@ int main()
 {
 	std::cout << "\n\t\t   GLO-DOKU\n";
 	Menu gameMenu;
-	gameMenu.createBoard();
+	gameMenu.game.createBoard();
 	while (play) {
-		gameMenu.printBoard();
+		gameMenu.game.printBoard();
 		gameMenu.mainMenu();
 	}
 

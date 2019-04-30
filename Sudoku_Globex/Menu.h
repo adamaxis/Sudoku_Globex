@@ -2,6 +2,7 @@
 #define _MENU_H
 #include "Sudoku_Globex.h"
 #include "Timer.h"
+#include "Board.h"
 
 class Menu {
 public:
@@ -11,20 +12,14 @@ public:
 	rowChoice,
 	valueChoice,
 	difficulty;
+	Timer clock;
+	Board game;
 	bool fixed[GRID_SIZE][GRID_SIZE],
 	ok[GRID_SIZE][GRID_SIZE];
-	Timer clock;
-	void mainMenu();
-	void createBoard( );
-	void printBoard( );
-	void clearBoard( );
-	bool legalMove(int, int, int);
-	bool freeSpot(int &, int &);
-	bool solve( );
-
 	Menu( ) {
 		response = columnChoice = rowChoice = valueChoice = difficulty = 0;
-		clearBoard( );
+		game.clearBoard( );
 	}
+	void mainMenu();
 };
 #endif

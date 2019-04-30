@@ -151,12 +151,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Board.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Sudoku_Globex.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Sudoku_Globex.h" />
     <ClInclude Include="Timer.h" />
