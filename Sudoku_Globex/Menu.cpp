@@ -57,7 +57,7 @@ void Menu::mainMenu() {
 		}
 
 
-		if (!game.legalMove(rowChoice, columnChoice, valueChoice) || game.fixed[rowChoice][columnChoice]) {
+		if ((!game.legalMove(rowChoice, columnChoice, valueChoice) && valueChoice != EMPTY) || (game.fixed[rowChoice][columnChoice])) {
 			cout << "That is not a legal move." << endl;
 		} else {
 			game.board[rowChoice - 1][columnChoice - 1] = response;

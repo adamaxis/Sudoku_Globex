@@ -39,14 +39,18 @@ void Board::printBoard() {
 	for (int i = 0; i <= 8; i++) {
 		cout << endl << "     ";
 		for (int j = 0; j <= 8; j++) {
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240); // white
 			cout << "|";
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
 			if (isFixed(i, j)) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 128); // grey
 			else if(!isEmpty(i, j)) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 32); // green
 			else SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 224); // red
 			cout << " " << board[i][j] << " ";
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
 		}
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240); // white
 		cout << "|" << endl;
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
 	}
 	cout << endl;
 }
