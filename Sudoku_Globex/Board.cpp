@@ -1,9 +1,27 @@
 #include <iostream>
+#include <cstdlib>
+#include <vector>
 #include "Board.h"
 using namespace std;
 
 void Board::createBoard() {
 	clock.start( );
+	srand(time(0));
+	int numberOptions[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	int temp;
+
+	for (int i = 0; i <= GRID_SIZE; i++) { // For each row in the board
+		int numberOfBoxes = (rand() % 5 + 2); // a random number of numbers is pre-filled
+		for (int j = 0; j <= numberOfBoxes; j++) { // For each row in the board
+			int r = (rand() % 9 + 1);
+			for (int i = 0; i <= GRID_SIZE; i++) {
+				for (int j = 0; j <= GRID_SIZE; j++) {
+					temp = numberOptions[r];
+				}
+			}
+		}
+	}
+
 	for (int i = 0; i <= 8; i++) {
 		for (int j = 0; j <= 8; j++) {
 
