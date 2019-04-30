@@ -33,24 +33,34 @@ bool Board::isEmpty(int row, int col) {
 	return (board[row][col] == EMPTY);
 }
 
+// set console text color
+void Board::setColor(int newColor) {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), newColor);
+}
+
+// revert back to default color
+void Board::revertColor( ) {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
+}
+
 void Board::printBoard() {
 	cout << "Timer: ";
 	clock.printTime( );
 	for (int i = 0; i <= 8; i++) {
 		cout << endl << "     ";
 		for (int j = 0; j <= 8; j++) {
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240); // white
+			setColor(240); // white
 			cout << "|";
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
-			if (isFixed(i, j)) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 128); // grey
-			else if(!isEmpty(i, j)) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 32); // green
-			else SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 224); // red
+			revertColor(); //original color
+			if (isFixed(i, j)) setColor(128); // grey
+			else if(!isEmpty(i, j)) setColor(32); // green
+			else setColor(224); // red
 			cout << " " << board[i][j] << " ";
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
+			revertColor( ); // back to original
 		}
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240); // white
+		setColor(240); // white
 		cout << "|";
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), origConsole->wAttributes); //original color
+		revertColor( ); // back to original
 		cout << endl;
 	}
 	cout << endl;
