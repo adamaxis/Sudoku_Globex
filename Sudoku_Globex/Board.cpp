@@ -4,11 +4,12 @@ using namespace std;
 
 void Board::createBoard() {
 	clearBoard( );
+	cout << "Generating new puzzle..." << endl << endl;
 	while (1) {
 		srand(time(0));
 		int temp;
-		int numberOfBoxes = (rand() % 10 + 3); // a random number of numbers is pre-filled
-		for (int j = 0; j <= numberOfBoxes; j++) { // For each row in the board
+		int numberOfBoxes = (rand() % 10) + 3; // a random number of numbers is pre-filled: minimum 3, max 12
+		for (int j = 0; j <= numberOfBoxes; j++) { // for each random box, generate a random number
 			int row = (rand() % GRID_SIZE);
 			int col = (rand() % GRID_SIZE);
 			int rnum = (rand() % 9) + 1;
@@ -19,10 +20,13 @@ void Board::createBoard() {
 				j--;
 			}
 		}
+		// now we verify that the puzzle is solvable
 		Board check;
 		memcpy(&check, this, sizeof(this));
-		if (check.solve( )) return;
-		else clearBoard( );
+		if (check.solve( )) { // puzzle is solvable
+			clock.start( ); // start the clock
+			return;
+		} else clearBoard( ); // it isn't, so start over
 	}
 }
 
@@ -133,6 +137,7 @@ bool Board::freeSpot(int &row, int &col) {
 	return false;
 }
 
+// verify that there are no empty spaces and every entry is valid
 bool Board::checkComplete( ) {
 	for (int i = 0; i < GRID_SIZE; i++) {
 		for (int k = 0; k < GRID_SIZE; k++) {

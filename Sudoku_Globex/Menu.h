@@ -7,11 +7,11 @@
 class Menu {
 public:
 	int board[GRID_SIZE][GRID_SIZE],
-	response,
 	columnChoice,
 	rowChoice,
 	valueChoice,
 	difficulty;
+	string response;
 	Board game;
 	bool fixed[GRID_SIZE][GRID_SIZE],
 	ok[GRID_SIZE][GRID_SIZE];

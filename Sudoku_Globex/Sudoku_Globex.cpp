@@ -12,13 +12,18 @@ int main()
 {
 	std::cout << "\n\t\t   GLO-DOKU\n";
 	Menu gameMenu;
+	// create new puzzle
 	gameMenu.game.createBoard();
 	while (play) {
-		gameMenu.game.printBoard();
-		gameMenu.mainMenu();
-		if (getchar( ) == 'S') gameMenu.game.solve( );
-		if (gameMenu.game.checkComplete()) {
-			gameMenu.game.printBoard();
+		// show puzzle and menu
+		gameMenu.game.printBoard( );
+		gameMenu.mainMenu( );
+		/* Commented out - it was a test to test solve methods
+		* if (getchar( ) == 'S') gameMenu.game.solve( );
+		*/
+		if (gameMenu.game.checkComplete( )) {
+			// puzzle solved, so generate new puzzle
+			gameMenu.game.printBoard( );
 			cout << endl << endl << "You have solved the sudoku!" << endl;
 			cout << "Total solve time: ";
 			gameMenu.game.clock.printTime( );
@@ -28,6 +33,5 @@ int main()
 			continue;
 		}
 	}
-
 	return 0;
 }

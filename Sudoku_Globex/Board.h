@@ -8,8 +8,7 @@ class Board {
 	public:
 	int board[GRID_SIZE][GRID_SIZE],
 		difficulty;
-	bool fixed[GRID_SIZE][GRID_SIZE],
-		ok[GRID_SIZE][GRID_SIZE];
+	bool fixed[GRID_SIZE][GRID_SIZE];
 	Timer clock;
 	CONSOLE_SCREEN_BUFFER_INFO *origConsole;
 	void createBoard( );
